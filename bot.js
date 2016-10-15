@@ -84,12 +84,12 @@ initial_variables_and_constants_and_functions: {
     var Harambe = "Innocent",
         Eytukan = "literally a mistake",
         Tariq = "math wizard?",
-        RK = "RK. What is there to say about him?",
+        RK = "the guy who haxed me",
         DU = "I dunno.",
         Blaze = "never here... :sob:",
         Element118 = {
             valueOf: function() {
-                return 118;
+                return "Oganesson";
             },
             toString: function() {
                 return "Hahaha";
