@@ -213,6 +213,7 @@ documentation: {
         "promote": "Sends a request for a specified program to be promoted.\n\n*Usage:* `!promote <programnumber>`",
         "ping": "Pings the bot.\n\n*Usage:* `!ping`",
         "ask": "Asks the bot a direct question.\n\n*Usage:* `!ask`" // Feature in prograss by KonurPapa
+        "add": "Adds a new user into our database. \n\n*Usage:* '!add [ka username]'"
     };
 }
 
@@ -980,6 +981,22 @@ try {
                     lq = lq.replace(/ /gim, "+");
                     send(message, "\uD83D\uDCE3 http://lmgtfy.com/?q=" + lq);*/
                     break;
+                case "!add" + endsub(4):
+                        var username = message.content.substr(4, message.content.length +1);
+                        request("https://www.khanacademy.org/api/internal/user/profile?username=" + username, function (e, r, b) {
+                        var kaid;
+                            if (!e && r.statusCode == 200) {
+                             kaid = JSON.parse(b).kaid;
+                        } else {
+                            // do something if there's an error
+                        }
+                    });
+                         
+                            data.kanames.push({        
+                                "<@" + kaid + ">" : username + ","
+                            });
+                            randomVariable = JSON.stringify(data);  
+                   break;
                 default: //  now you don't need these if else statements lol ikr
                     {
                         if (message.author.id !== Client.user.id) {
